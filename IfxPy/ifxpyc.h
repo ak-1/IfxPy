@@ -83,7 +83,12 @@ typedef int Py_ssize_t;
 #define StringOBJ_FromASCII(str)   PyUnicode_DecodeASCII(str, strlen(str), NULL)
 #define PyString_Check             PyUnicode_Check
 #define StringObj_Format           PyUnicode_Format
-#define StringObj_Size             PyUnicode_GET_SIZE
+#if PY_VERSION_HEX >= 0x03030000
+#define StringObj_Size PyUnicode_GetSize
+
+#else  // For Python versions below 3.3
+#define StringObj_Size PyUnicode_GET_SIZE
+#endif
 #define MOD_RETURN_ERROR           NULL
 #define MOD_RETURN_VAL(mod)        mod
 #define INIT_IfxPy                PyInit_IfxPy

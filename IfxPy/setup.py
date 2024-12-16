@@ -172,7 +172,7 @@ if('win32' in sys.platform):
         include_dirs = [py_home + '\\include', csdk_home + '\\incl\\cli'],
         libraries = ['iclit09b'],
         define_macros=definitions,
-        library_dirs = [ py_home + '\libs', csdk_home + '\lib'],
+        library_dirs = [ py_home + r'\libs', csdk_home + r'\lib'],
         sources = ['ifxpyc.c'])
 else:
     IfxPyNative_ext_modules = Extension('IfxPy',
