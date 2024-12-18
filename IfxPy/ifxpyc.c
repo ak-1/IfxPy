@@ -2238,7 +2238,7 @@ static SQLWCHAR* getUnicodeDataAsSQLWCHAR(PyObject *pyobj, int *isNewBuffer)
 	*isNewBuffer = 0;
 #if PY_VERSION_HEX >= 0x03030000
 // For Python 3.3 and above
-    nCharLen = PyUnicode_GetSize(pyobj);
+    nCharLen = PyUnicode_GetLength(pyobj);
 #else
     // For Python versions below 3.3
     nCharLen = PyUnicode_GET_SIZE(pyobj);
